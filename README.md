@@ -1,6 +1,6 @@
 ## Sensu-Plugins-io-checks
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-io-checks.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-io-checks)
+[ ![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-io-checks.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-io-checks)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-io-checks.svg)](http://badge.fury.io/rb/sensu-plugins-io-checks)
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-io-checks/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-io-checks)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-io-checks/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-io-checks)
