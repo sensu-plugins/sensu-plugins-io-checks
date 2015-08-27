@@ -104,7 +104,7 @@ class IOPingMetrics < Sensu::Plugin::Metric::CLI::Graphite
     'day' => 24 * 60 * 60
   }
   # #YELLOW
-  STATS_HEADER = /min\/avg\/max\/mdev/ # rubocop:disable RegexpLiteral
+  STATS_HEADER = /min\/avg\/max\/mdev/
 
   def parse_0_6(str)
     value = /#{NUMBER}/
