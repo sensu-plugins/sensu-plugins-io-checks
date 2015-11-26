@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.date                   = Date.today.to_s
   s.description            = 'This plugin provides native system I/O
                               instrumentation for metrics collection via the
-                              system <code>ioping</code> utility.'
+                              system `ioping` utility.'
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
