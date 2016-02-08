@@ -110,7 +110,7 @@ class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
     stdin, stdout, stderr = Open3.popen3(cmd, *args, unsetenv_others: true)
     stdin.close
     stderr.close
-    stats = parse_results(stdout.gets(nil, nil))
+    stats = parse_results(stdout.gets(nil))
     stdout.close
 
     timestamp = Time.now.to_i
