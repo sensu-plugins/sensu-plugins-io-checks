@@ -29,6 +29,7 @@
 #
 
 require 'sensu-plugin/metric/cli'
+require 'open3'
 require 'socket'
 
 class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
@@ -95,20 +96,27 @@ class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   def run
-    cmd = "iostat -x #{config[:interval]} 2"
+    cmd = 'iostat'
+    args = ['-x', config[:interval].to_s, '2']
+    args.push('-N') if config[:mappernames]
+    args.push(File.basename(config[:disk])) if config[:disk]
 
-    cmd += " #{File.basename(config[:disk])}" if config[:disk]
     if config[:excludedisk]
-      config[:excludedisk].each do |disk|
-        cmd += " | grep -v #{disk}"
-      end
+      exclude_disk = config[:excludedisk].map { |d| File.basename(d) }
+    else
+      exclude_disk = []
     end
-    cmd += ' -N' if config[:mappernames]
-    stats = parse_results(`#{cmd}`)
+
+    stdin, stdout, stderr = Open3.popen3(cmd, *args, unsetenv_others: true)
+    stdin.close
+    stderr.close
+    stats = parse_results(stdout.gets(nil))
+    stdout.close
 
     timestamp = Time.now.to_i
 
     stats.each do |disk, metrics|
+      next if exclude_disk.include? disk
       metrics.each do |metric, value|
         output [config[:scheme], disk, metric].join('.'), value, timestamp
       end
