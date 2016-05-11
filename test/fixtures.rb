@@ -1,6 +1,6 @@
 def iostat_result
   iostat =
-<<-EOF
+    <<-EOF
 Linux 3.16.0-4-amd64 (foobar)       01/15/16        _x86_64_        (4 CPU)
 
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle

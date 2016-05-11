@@ -101,11 +101,11 @@ class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
     args.push('-N') if config[:mappernames]
     args.push(File.basename(config[:disk])) if config[:disk]
 
-    if config[:excludedisk]
-      exclude_disk = config[:excludedisk].map { |d| File.basename(d) }
-    else
-      exclude_disk = []
-    end
+    exclude_disk = if config[:excludedisk]
+                     config[:excludedisk].map { |d| File.basename(d) }
+                   else
+                     []
+                   end
 
     stdin, stdout, stderr = Open3.popen3(cmd, *args, unsetenv_others: true)
     stdin.close
