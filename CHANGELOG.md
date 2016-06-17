@@ -16,6 +16,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - use open3 instead of backticks for proper call to iostat
 - filter exclude-disk in ruby code instead of shell grepping
 - do not pass any environment vars from sensu to iostat call
+- Update to Rubocop 0.40, apply auto-correct
+- Remove Ruby 1.9.3 support; add Ruby 2.3.0 support to test matrix
 
 ## [0.0.3] - 2015-10-15
 ### Changed
