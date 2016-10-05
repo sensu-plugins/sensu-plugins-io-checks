@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 #  encoding: UTF-8
 #
-#   iostat-extended-metrics
+#   metrics-iostat-extended
 #
 # DESCRIPTION:
 #   This plugin collects iostat data for a specified disk or all disks.
@@ -19,8 +19,15 @@
 #   gem: socket
 #
 # USAGE:
+#   Collect metrics for all disks
+#   metrics-iostat-extended.rb
+#
+#   Collect metrics for /dev/sda for 3 seconds
+#   metrics-iostat-extended.rb -d /dev/sda -i 3
 #
 # NOTES:
+#   The iostat command must be installed. On Debian/Redhat systems
+#   iostat is part of the sysstat package.
 #
 # LICENSE:
 #   Peter Fern <ruby@0xc0dedbad.com>

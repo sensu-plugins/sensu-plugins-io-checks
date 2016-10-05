@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 #  encoding: UTF-8
 #
-#   ioping-metrics
+#   metrics-ioping
 #
 # DESCRIPTION:
 #   Push ioping stats into graphite
@@ -17,8 +17,11 @@
 #   gem: socket
 #
 # USAGE:
+#   Collect IO metrics from /dev/sda
+#   metrics-ioping.rb -n sda -d /dev/sda
 #
 # NOTES:
+#   The ioping command must be installed
 #
 # LICENSE:
 #   Copyright 2014 Mitsutoshi Aoe <maoe@foldr.in>
