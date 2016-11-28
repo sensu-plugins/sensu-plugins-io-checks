@@ -33,25 +33,39 @@ require 'sensu-plugin/check/cli'
 # Check IO WAIT
 #
 class CheckIOWAIT < Sensu::Plugin::Check::CLI
-  option :warning, long: '--warning WARNING', short: '-w WARNING', description: 'warning percentage', proc: proc(&:to_f), default: 50, required: false
-  option :debug, long: '--debug', short: '-d', description: 'debug info', default: false, boolean: true, required: false
-  option :critical, long: '--critical CRITICAL', short: '-c CRITICAL', description: 'Critical percentage threshold', proc: proc(&:to_f), default: 70, required: false
-  option :sleep, long: '--sleep SECONDS', short: '-s SECONDS', description: 'Amount of seconds to sleep between IO benchmarks', proc: proc(&:to_i), default: 5, required: false
+  option :warning, long: '--warning WARNING', short: '-w WARNING', description: 'warning percentage', proc: proc(&:to_f), default: 50
+  option :debug, long: '--debug', short: '-d', description: 'debug info', default: false, boolean: true
+  option :critical, long: '--critical CRITICAL', short: '-c CRITICAL', description: 'Critical percentage threshold', proc: proc(&:to_f), default: 70
+  option :sleep, long: '--sleep SECONDS', short: '-s SECONDS', description: 'Amount of seconds to sleep between IO benchmarks', proc: proc(&:to_i), default: 5
 
-  # Computes the IO Wait 
+  # determine whether the OS is crappy or not
+  def special_os
+    if File.exists?('/etc/redhat-release')
+      return true if File.foreach('/etc/redhat-release').first.to_s.include? 'CentOS release 5'
+    end
+    if File.exists?('/etc/gentoo-release')
+      return true if File.foreach('/etc/gentoo-release').first.to_s.include? 'Gentoo'
+    end
+    return false
+  end
+
+  # Computes the IO Wait
   # BEWARE : Result in function of number of cores
   # E.G : 100% iowait on 8 cores <=> riwP = 800% || riw = 8;
+  # Original bash commands are: 
+  # ut0 = `cat /proc/uptime| awk '{print $1}'`
+  # iw0 = `head -n1 /proc/stat|awk '{print $6}'`
+  # ut1 = `cat /proc/uptime| awk '{print $1}'`
+  # iw1 = `head -n1 /proc/stat|awk '{print $6}'`
   def compute
     ticker = `getconf CLK_TCK`
     iv = config[:sleep] # number of sleep seconds
-    ut0 = `cat /proc/uptime| awk '{print $1}'`
-    iw0 = `head -n1 /proc/stat|awk '{print $6}'`
+    ut0 = File.read('/proc/uptime').split(' ')[0]
+    iw0 = File.foreach('/tmp/stat').first.split(' ')[5]
     sleep(iv)
-    ut1 = `cat /proc/uptime| awk '{print $1}'`
-    iw1 = `head -n1 /proc/stat|awk '{print $6}'`
-    is_rh5 = `cat /etc/redhat-release 2>/dev/null`.to_s.include? 'CentOS release 5'
-    is_gentoo = `cat /etc/gentoo-release 2>/dev/null`.to_s.include? 'Gentoo'
-    if is_rh5 || is_gentoo
+    ut1 = File.read('/proc/uptime').split(' ')[0]
+    iw1 = File.foreach('/tmp/stat').first.split(' ')[5]
+    if special_os
       nbproc = `grep -i "physical id" /proc/cpuinfo | sort -u | wc -l | sed -e 's/ //g'`.to_i + 1
     else
       nbproc = `nproc`
