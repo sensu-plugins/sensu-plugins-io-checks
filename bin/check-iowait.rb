@@ -61,14 +61,14 @@ class CheckIOWAIT < Sensu::Plugin::Check::CLI
     ticker = `getconf CLK_TCK`
     iv = config[:sleep] # number of sleep seconds
     ut0 = File.read('/proc/uptime').split(' ')[0]
-    iw0 = File.foreach('/tmp/stat').first.split(' ')[5]
+    iw0 = File.foreach('/proc/stat').first.split(' ')[5]
     sleep(iv)
     ut1 = File.read('/proc/uptime').split(' ')[0]
-    iw1 = File.foreach('/tmp/stat').first.split(' ')[5]
-    if special_os == true
-      nbproc = `grep -i "physical id" /proc/cpuinfo | sort -u | wc -l | sed -e 's/ //g'`.to_i + 1
+    iw1 = File.foreach('/proc/stat').first.split(' ')[5]
+    nbproc = if special_os 
+      `grep -i "physical id" /proc/cpuinfo | sort -u | wc -l | sed -e 's/ //g'`.to_i + 1
     else
-      nbproc = `nproc`
+      `nproc`
     end
 
     iwt = iw1.to_f - iw0.to_f
@@ -77,8 +77,8 @@ class CheckIOWAIT < Sensu::Plugin::Check::CLI
     riw_p = (riw * 100 / nbproc.to_f)
     puts riw.to_s if config[:debug]
     return riw_p.to_f
-  rescue
-    unknown 'Could not fetch IOSTAT'
+  rescue => e
+    unknown "Could not fetch IOWAIT #{e.message}"
   end
 
   def run
