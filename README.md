@@ -11,6 +11,7 @@
 ## Files
  * bin/metrics-ioping
  * bin/metrics-iostat-extended
+ * bin/check-iowait
 
 ## Usage
 
