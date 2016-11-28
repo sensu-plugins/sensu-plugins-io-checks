@@ -65,12 +65,11 @@ class CheckIOWAIT < Sensu::Plugin::Check::CLI
     sleep(iv)
     ut1 = File.read('/proc/uptime').split(' ')[0]
     iw1 = File.foreach('/proc/stat').first.split(' ')[5]
-    nbproc = if special_os 
-      `grep -i "physical id" /proc/cpuinfo | sort -u | wc -l | sed -e 's/ //g'`.to_i + 1
-    else
-      `nproc`
-    end
-
+    nbproc = if special_os
+               `grep -i "physical id" /proc/cpuinfo | sort -u | wc -l | sed -e 's/ //g'`.to_i + 1
+             else
+               `nproc`
+             end
     iwt = iw1.to_f - iw0.to_f
     utt = ut1.to_f - ut0.to_f
     riw = (iwt.to_f / ticker.to_f) / utt.to_f
