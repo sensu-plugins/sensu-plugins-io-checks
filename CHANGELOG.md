@@ -6,7 +6,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 
 ### Fixed
-- [ioping]https://github.com/koct9i/ioping is switching to nanosecond precision - added 'ns' to metrics-ioping.rb
+- [ioping](https://github.com/koct9i/ioping) is switching to nanosecond precision - added 'ns' to metrics-ioping.rb
 
 ## [1.0.0] - 2016-06-20
 ### Added
