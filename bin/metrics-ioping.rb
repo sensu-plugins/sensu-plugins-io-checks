@@ -97,8 +97,9 @@ class IOPingMetrics < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   NUMBER = /\d+(?:\.\d+)?/
-  TIME_UNIT = /(?:us|ms|s|min|hour|day)/
+  TIME_UNIT = /(?:ns|us|ms|s|min|hour|day)/
   TIME_UNITS = {
+    'ns' => 1e-9,
     'us' => 1e-6,
     'ms' => 1e-3,
     's' => 1,
