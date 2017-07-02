@@ -5,8 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+## [1.0.1] - 2017-0702
 ### Fixed
-- [ioping](https://github.com/koct9i/ioping) is switching to nanosecond precision - added 'ns' to metrics-ioping.rb
+- [ioping](https://github.com/koct9i/ioping) is switching to nanosecond precision - added 'ns' to metrics-ioping.rb (@MattMencel)
 
 ## [1.0.0] - 2016-06-20
 ### Added
@@ -36,7 +37,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/0.0.3...1.0.0
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/0.0.1...0.0.2
