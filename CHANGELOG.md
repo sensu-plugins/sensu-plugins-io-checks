@@ -11,6 +11,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Fixed
 - [ioping](https://github.com/koct9i/ioping) is switching to nanosecond precision - added 'ns' to metrics-ioping.rb (@MattMencel)
 
+## [1.0.1] - 2016-11-28
+### Added
+- check-iowait
+
 ## [1.0.0] - 2016-06-20
 ### Added
 - rspec test cases for metrics-iostat-extended
