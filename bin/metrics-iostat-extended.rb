@@ -85,7 +85,7 @@ class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
         headers = line.gsub(/%/, 'pct_').split(/\s+/)
         headers.shift
         next
-      when /^(Device):/
+      when /^(Device).*/
         stage = :device
         headers = line.gsub(/%/, 'pct_').split(/\s+/).map { |h| h.gsub(/\//, '_per_') }
         headers.shift
