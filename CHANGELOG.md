@@ -6,6 +6,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Added
 - ruby 2.4 testing (@majormoses)
+### Fixed
+- [iostat] Changes ouput in device session from 'Device:' to 'Device'. Fix issue  #12 (@dmichelotto)
 
 ## [1.0.1] - 2017-0702
 ### Fixed
