@@ -1,15 +1,18 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
+This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [1.0.2] - 2018-10-27
+### Fixed
+- metrics-iostat-extended.rb: Changes ouput in device session from 'Device:' to 'Device'. Fix issue  #12 (@dmichelotto)
+
 ### Added
 - ruby 2.4 testing (@majormoses)
-### Fixed
-- [iostat] Changes ouput in device session from 'Device:' to 'Device'. Fix issue  #12 (@dmichelotto)
 
-## [1.0.1] - 2017-0702
+## [1.0.1] - 2017-07-02
 ### Fixed
 - [ioping](https://github.com/koct9i/ioping) is switching to nanosecond precision - added 'ns' to metrics-ioping.rb (@MattMencel)
 
@@ -41,7 +44,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/0.0.3...1.0.0
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/0.0.2...0.0.3
