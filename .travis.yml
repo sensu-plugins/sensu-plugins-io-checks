@@ -1,4 +1,5 @@
 language: ruby
+services: docker
 cache:
 - bundler
 install:
@@ -19,8 +20,10 @@ script:
 - bundle exec rake default
 - gem build sensu-plugins-io-checks.gemspec
 - gem install sensu-plugins-io-checks-*.gem
+before_deploy:
+- bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
-  provider: rubygems
+- provider: rubygems
   api_key:
     secure: BIQ/nVnKzyQSYpMDTELBboFSQIWh1AfPGTi/5xuApY2Wxq7A5h4fJNSQ53+mDrL7hQZr5L5sjw2Cf7fkEWkyR/e8Bi6iQpO5sqU547gWcl5/yB0YnP9f25XaPuG5dtW/3gQB7pdbiTMlx2OHsVPGnZgt8zmPiet/AGH0lWTMCqA=
   gem: sensu-plugins-io-checks
@@ -33,3 +36,10 @@ deploy:
     rvm: 2.3.0
     rvm: 2.4.1
     repo: sensu-plugins/sensu-plugins-io-checks
+- provider: script
+  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-io-checks
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.4.1
