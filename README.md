@@ -95,7 +95,7 @@ metadata:
   namespace: default
 spec:
   check_hooks: null
-  command: sensu-plugins-io-checks -exporter-url http://localhost:9182/metrics
+  command: metrics-ioping.rb -exporter-url http://localhost:9182/metrics
   output_metric_format: graphite
   output_metric_handlers:
   - graphite
@@ -117,7 +117,7 @@ spec:
   "checks": {
     "metrics-ioping": {
       "type": "metric",
-      "command": "sensu-plugins-io-checks -exporter-url http://localhost:8080/metrics",
+      "command": "metrics-ioping.rb -exporter-url http://localhost:8080/metrics",
       "subscribers": ["app_tier"],
       "interval": 10,
       "handler": "graphite"
