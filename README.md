@@ -95,7 +95,7 @@ metadata:
   namespace: default
 spec:
   check_hooks: null
-  command: metrics-ioping.rb -exporter-url http://localhost:9182/metrics
+  command: metrics-ioping.rb -exporter-url http://localhost:8080/metrics
   output_metric_format: graphite
   output_metric_handlers:
   - graphite
