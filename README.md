@@ -101,6 +101,7 @@ spec:
   - graphite
   runtime_assets:
   - sensu/sensu-plugins-io-checks
+  - sensu/sensu-ruby-runtime
   stdin: false
   subdue: null
   subscriptions:
