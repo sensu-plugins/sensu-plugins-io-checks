@@ -5,7 +5,10 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
-## [2.1.0] - 2019-12-12
+## [2.1.0] - 2019-12-18
+### Changed
+- Updated README to conform with standardization guidelines (sensu-plugins/community#134)
+
 ### Added
 - Updated asset build targets to support centos6
 
