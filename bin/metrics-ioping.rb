@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
-#  encoding: UTF-8
+# frozen_string_literal: true
+
 #
 #   metrics-ioping
 #
@@ -96,8 +97,8 @@ class IOPingMetrics < Sensu::Plugin::Metric::CLI::Graphite
     stats
   end
 
-  NUMBER = /\d+(?:\.\d+)?/
-  TIME_UNIT = /(?:ns|us|ms|s|min|hour|day)/
+  NUMBER = /\d+(?:\.\d+)?/.freeze
+  TIME_UNIT = /(?:ns|us|ms|s|min|hour|day)/.freeze
   TIME_UNITS = {
     'ns' => 1e-9,
     'us' => 1e-6,
@@ -108,7 +109,7 @@ class IOPingMetrics < Sensu::Plugin::Metric::CLI::Graphite
     'day' => 24 * 60 * 60
   }.freeze
   # #YELLOW
-  STATS_HEADER = /min\/avg\/max\/mdev/
+  STATS_HEADER = /min\/avg\/max\/mdev/.freeze
 
   def parse_0_6(str)
     value = /#{NUMBER}/

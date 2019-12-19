@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+### Breaking Changes
+- updated required minimum ruby version to 2.3
+
 ### Changed 
+- update robocup development dependency to '~> 0.78.0'
 - update rake development dependency to '~> 13.0'
 - update bundler development dependancy to '~> 2.1'
 
