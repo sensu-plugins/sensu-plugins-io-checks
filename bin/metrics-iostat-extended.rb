@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
-#  encoding: UTF-8
+# frozen_string_literal: true
+
 #
 #   metrics-iostat-extended
 #
@@ -124,6 +125,7 @@ class IOStatExtended < Sensu::Plugin::Metric::CLI::Graphite
 
     stats.each do |disk, metrics|
       next if exclude_disk.include? disk
+
       metrics.each do |metric, value|
         output [config[:scheme], disk, metric].join('.'), value, timestamp
       end
