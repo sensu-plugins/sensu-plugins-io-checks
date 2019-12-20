@@ -4,16 +4,20 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [3.0.0] - 2019-12-18
 ### Breaking Changes
-- updated required minimum ruby version to 2.3
+- Updated required minimum ruby version to 2.3
 
 ### Changed 
-- update robocup development dependency to '~> 0.78.0'
-- update rake development dependency to '~> 13.0'
-- update bundler development dependancy to '~> 2.1'
-- update codeclimate-test-reporter development dependancy to '~> 1.0'
-- update yard development dependancy to '~> 0.9.20'
-- replaced codeclimate with simplecov to generate test coverage reports
+- Updated robocup development dependency to '~> 0.78.0'
+- Updated rake development dependency to '~> 13.0'
+- Updated bundler development dependancy to '~> 2.1'
+- Updated codeclimate-test-reporter development dependancy to '~> 1.0'
+- Updated yard development dependancy to '~> 0.9.20'
+- Replaced codeclimate with simplecov to generate test coverage reports
+- Updated bundler development depedency to '~> 2.1'
+- Updated README to conform with standardization guidelines (sensu-plugins/community#134)
 
 ### Added
 - Added development dep on simplecov 
@@ -68,7 +72,8 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.2...2.0.0
 [1.0.2]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/sensu-plugins/sensu-plugins-io-checks/compare/1.0.0...1.0.1
