@@ -11,8 +11,10 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 - update robocup development dependency to '~> 0.78.0'
 - update rake development dependency to '~> 13.0'
 - update bundler development dependancy to '~> 2.1'
+- replaced codeclimate with simplecov to generate test coverage reports
 
 ### Added
+- Added development dep on simplecov 
 - Updated asset build targets to support centos6
 
 ## [2.0.0] - 2019-05-07
