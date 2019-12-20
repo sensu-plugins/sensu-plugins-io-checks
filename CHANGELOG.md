@@ -12,6 +12,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 - update rake development dependency to '~> 13.0'
 - update bundler development dependancy to '~> 2.1'
 - update codeclimate-test-reporter development dependancy to '~> 1.0'
+- update yard development dependancy to '~> 0.9.20'
 - replaced codeclimate with simplecov to generate test coverage reports
 
 ### Added
