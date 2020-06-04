@@ -5,7 +5,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
-## [3.0.0] - 2020-06-01
+## [3.0.1] - 2020-06-01
 ## Fixed
 -  Fix for incorrectfrozen Ruby literal string setting in plugin executables.
 
